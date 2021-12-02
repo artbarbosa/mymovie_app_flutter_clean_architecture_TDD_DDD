@@ -14,7 +14,7 @@ void main() {
   final usecase = SearchMoviesUseCaseImp(repository);
   const params = MovieSearchParams(searchTerm: 'title');
 
-  test('Return List MovieEntity', () async {
+  test('getSearchedMovies must return List MovieEntity', () async {
     when(() => repository.getSearchedMovies(any()))
         .thenAnswer((_) async => const Right(<MovieEntity>[]));
     var result = await usecase.call(params);
@@ -22,7 +22,7 @@ void main() {
     expect(result.fold(id, id), isA<List<MovieEntity>>());
   });
 
-  test('Return params: title ', () async {
+  test('getSearchedMovies must return params: title ', () async {
     when(() => repository.getSearchedMovies(any()))
         .thenAnswer((_) async => const Right(<MovieEntity>[]));
     var result = await usecase.call(params);
@@ -30,7 +30,7 @@ void main() {
     expect(params.searchTerm, 'title');
   });
 
-  test('Return ErrorMovie', () async {
+  test('getSearchedMovies must return ErrorMovie', () async {
     when(() => repository.getSearchedMovies(any())).thenAnswer((_) async =>
         const Left(IpsMovieRepositorysExceptions('Error Repository')));
     var result = await usecase.call(params);

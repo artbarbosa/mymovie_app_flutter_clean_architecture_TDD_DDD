@@ -14,7 +14,7 @@ void main() {
   final usecase = DeleteFavoriteMovieUseCaseImp(movieRepository);
   const movieParams = MovieParams(2567);
 
-  test('Return movieParamns id 2567', () async {
+  test('deleteFavoriteMovie must return movieParamns id 2567', () async {
     when(() => movieRepository.deleteFavoriteMovie(any()))
         .thenAnswer((_) async => const Right(movieParams));
     final result = await usecase.call(movieParams);
@@ -22,7 +22,7 @@ void main() {
     expect(result.fold((l) => MovieError, (r) => movieParams.id), 2567);
   });
 
-   test('Return Movie Params 2567', () async {
+   test('deleteFavoriteMovie must return Movie Params 2567', () async {
     when(() => movieRepository.deleteFavoriteMovie(any()))
         .thenAnswer((_) async => const Right(movieParams));
     final result = await usecase.call(movieParams);
@@ -30,7 +30,7 @@ void main() {
     expect(result.fold((l) => MovieError, (r) => movieParams), const MovieParams(2567));
   });
 
-  test('Return IpsMovieRepositorysExceptions', () async {
+  test('deleteFavoriteMovie must return IpsMovieRepositorysExceptions', () async {
     when(() => movieRepository.deleteFavoriteMovie(any())).thenAnswer(
         (_) async =>
             const Left(IpsMovieRepositorysExceptions('Error Repository')));

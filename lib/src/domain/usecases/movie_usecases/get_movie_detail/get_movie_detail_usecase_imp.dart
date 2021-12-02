@@ -5,7 +5,8 @@ import 'package:mymovie_app/src/domain/errors/movie_errors.dart';
 import 'package:mymovie_app/src/domain/repositories/movie_repository.dart';
 import 'get_movie_detail_usecase.dart';
 
-class GetMovieDetailUseCaseImp implements GetMovieDetailUseCase<MovieDetailEntity, MovieParams> {
+class GetMovieDetailUseCaseImp
+    implements GetMovieDetailUseCase<MovieDetailEntity, MovieParams> {
   final MovieRepository repository;
 
   GetMovieDetailUseCaseImp(this.repository);

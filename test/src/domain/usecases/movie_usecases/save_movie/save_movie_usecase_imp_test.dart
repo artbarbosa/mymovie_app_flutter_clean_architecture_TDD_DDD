@@ -27,35 +27,35 @@ void main() {
     expect(result.fold((l) => MovieError, (r) => MovieEntity), MovieEntity);
   });
 
-  test('Return params MovieEntity', () async {
+  test('saveMovie must return params MovieEntity', () async {
     when(() => movieRepository.saveMovie(movieEntity)).thenAnswer((_) async => const Right(movieEntity));
     final result = await usecase.call(movieEntity);
     expect(result.isRight(), true);
     expect(result.fold((l) => MovieError, (r) => movieEntity), movieEntity);
   });
 
-  test('Return MovieEntity id 284053', () async {
+  test('saveMovie must return MovieEntity id 284053', () async {
     when(() => movieRepository.saveMovie(movieEntity)).thenAnswer((_) async => const Right(movieEntity));
     final result = await usecase.call(movieEntity);
     expect(result.isRight(), true);
     expect(result.fold((l) => MovieError, (r) => movieEntity.id), 284053);
   });
 
-  test('Return MovieEntity release date 2017-10-25  ', () async {
+  test('saveMovie must return MovieEntity release date 2017-10-25  ', () async {
     when(() => movieRepository.saveMovie(movieEntity)).thenAnswer((_) async => const Right(movieEntity));
     final result = await usecase.call(movieEntity);
     expect(result.isRight(), true);
     expect(result.fold((l) => MovieError, (r) => movieEntity.releaseDate), '2017-10-25');
   });
 
-    test('Return MovieEntity title Thor: Ragnarok ', () async {
+    test('saveMovie must return MovieEntity title Thor: Ragnarok ', () async {
     when(() => movieRepository.saveMovie(movieEntity)).thenAnswer((_) async => const Right(movieEntity));
     final result = await usecase.call(movieEntity);
     expect(result.isRight(), true);
     expect(result.fold((l) => MovieError, (r) => movieEntity.title), 'Thor: Ragnarok');
   });
 
-  test('Return IpsMovieRepositorysExceptions', () async {
+  test('saveMovie must return IpsMovieRepositorysExceptions', () async {
     when(() => movieRepository.saveMovie(movieEntity)).thenAnswer((_) async =>
         const Left(IpsMovieRepositorysExceptions('Error Repository')));
     var result = await usecase.call(movieEntity);

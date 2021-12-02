@@ -13,21 +13,21 @@ void main() {
   final usecase = CheckIfMovieFavoriteUseCaseImp(repository);
   const movieParams = MovieParams(1);
 
-  test('Return MovieParam type bool', () async {
+  test('checkIfMovieFavorite return MovieParam type bool', () async {
     when(() => repository.checkIfMovieFavorite(any()))
         .thenAnswer((_) async => const Right(true));
     var result = await usecase.call(movieParams);
     expect(result.isRight(), true);
     expect(result.fold(id, id), isA<bool>());
   });
-  test('Return MovieParam 1', () async {
+  test('checkIfMovieFavorite return MovieParam 1', () async {
     when(() => repository.checkIfMovieFavorite(any()))
         .thenAnswer((_) async => const Right(true));
     var result = await usecase.call(movieParams);
     expect(result.isRight(), true);
     expect(result.fold((l) => MovieError, (r) => movieParams.id ), 1);
   });
-    test('Return MovieParam true', () async {
+    test('checkIfMovieFavorite return MovieParam true', () async {
     when(() => repository.checkIfMovieFavorite(any()))
         .thenAnswer((_) async => const Right(true));
     var result = await usecase.call(movieParams);
@@ -35,7 +35,7 @@ void main() {
     expect(result.fold((l) => MovieError, (r) => true ), true);
   });
 
-  test('Return MovieParam false', () async {
+  test('checkIfMovieFavorite return MovieParam false', () async {
     when(() => repository.checkIfMovieFavorite(any()))
         .thenAnswer((_) async => const Right(false));
     var result = await usecase.call(movieParams);
@@ -43,7 +43,7 @@ void main() {
     expect(result.fold((l) => MovieError, (r) => false ), false);
   });
 
-  test('Return IpsMovieRepositorysExceptions', () async {
+  test('checkIfMovieFavorite return IpsMovieRepositorysExceptions', () async {
     when(() => repository.checkIfMovieFavorite(any())).thenAnswer((_) async =>
         const Left(IpsMovieRepositorysExceptions('Error Repository')));
     var result = await usecase.call(movieParams);
