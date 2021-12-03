@@ -1,5 +1,5 @@
+import 'package:fpdart/fpdart.dart';
 import 'package:mymovie_app/src/domain/errors/app_errors.dart';
-import 'package:fpdart/src/either.dart';
 import 'package:mymovie_app/src/domain/repositories/app_repository.dart';
 
 class AppRepositotyImp extends AppRepository {
