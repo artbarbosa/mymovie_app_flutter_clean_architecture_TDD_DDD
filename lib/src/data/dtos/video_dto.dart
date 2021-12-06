@@ -39,7 +39,7 @@ class VideoDto extends VideoEntity {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data =  <String, dynamic>{};
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;
     data['iso_639_1'] = iso6391;
     data['iso_3166_1'] = iso31661;

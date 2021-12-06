@@ -5,7 +5,7 @@ import 'package:mymovie_app/src/domain/errors/movie_errors.dart';
 import 'package:mymovie_app/src/domain/repositories/movie_repository.dart';
 import 'package:mymovie_app/src/domain/usecases/movie_usecases/search_movies/search_movies_usecase.dart';
 
-class SearchMoviesUseCaseImp extends SearchMovieUseCase<List<MovieEntity>, MovieSearchParams> {
+class SearchMoviesUseCaseImp extends SearchMoviesUseCase<List<MovieEntity>, MovieSearchParams> {
   final MovieRepository repository;
 
   SearchMoviesUseCaseImp(this.repository);

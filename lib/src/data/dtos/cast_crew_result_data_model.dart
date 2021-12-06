@@ -5,8 +5,7 @@ class CastCrewResultDto {
   late final List<CastDto> cast;
   late final List<Crew> crew;
 
-  CastCrewResultDto(
-      {required this.id, required this.cast, required this.crew});
+  CastCrewResultDto({required this.id, required this.cast, required this.crew});
 
   factory CastCrewResultDto.fromJson(Map<String, dynamic> json) {
     var cast = List<CastDto>.empty(growable: true);
@@ -36,7 +35,7 @@ class CastCrewResultDto {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data =  <String, dynamic>{};
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;
     data['cast'] = cast.map((v) => v.toJson()).toList();
     data['crew'] = crew.map((v) => v.toJson()).toList();

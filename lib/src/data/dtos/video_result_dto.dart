@@ -1,12 +1,12 @@
 import 'video_dto.dart';
 
-class VideoResulDto {
+class VideoResultDto {
   final int id;
   late final List<VideoDto> videos;
 
-  VideoResulDto({required this.id, required this.videos});
+  VideoResultDto({required this.id, required this.videos});
 
-  factory VideoResulDto.fromJson(Map<String, dynamic> json) {
+  factory VideoResultDto.fromJson(Map<String, dynamic> json) {
     var videos = List<VideoDto>.empty(growable: true);
     if (json['results'] != null) {
       json['results'].forEach((v) {
@@ -17,7 +17,7 @@ class VideoResulDto {
       });
     }
 
-    return VideoResulDto(id: json['id'], videos: videos);
+    return VideoResultDto(id: json['id'], videos: videos);
   }
 
   Map<String, dynamic> toJson() {

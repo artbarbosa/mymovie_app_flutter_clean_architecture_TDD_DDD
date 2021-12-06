@@ -13,7 +13,7 @@ class DioClient implements IApiClient {
   DioClient(this._client);
 
   @override
-  Future get(String path, Map<dynamic, dynamic>? params) async {
+  Future get(String path, {Map<dynamic, dynamic>? params}) async {
     await Future.delayed(const Duration(milliseconds: 500));
     final response = await _client.get(path,
         options: Options(
@@ -27,7 +27,7 @@ class DioClient implements IApiClient {
   }
 
   @override
-  Future post(String path, Map<dynamic, dynamic>? params) async {
+  Future post(String path, {Map<dynamic, dynamic>? params}) async {
     final response = await _client.post(path,
         options: Options(
           headers: {
@@ -42,7 +42,7 @@ class DioClient implements IApiClient {
   }
 
   @override
-  Future deleteWithBody(String path, Map<dynamic, dynamic>? params) async {
+  Future deleteWithBody(String path, {Map<dynamic, dynamic>? params}) async {
     RequestOptions request = RequestOptions(
         path: path,
         method: 'DELETE',

@@ -64,7 +64,7 @@ class MovieDto extends MovieEntity {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data =  <String, dynamic>{};
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;
     data['video'] = video;
     data['vote_count'] = voteCount;
